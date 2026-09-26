@@ -1,382 +1,841 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CineBox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>CineBox</title>
 
-<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#080808;color:#fff;font-family:Arial,sans-serif}
-button,input,select{font:inherit}
-button{cursor:pointer}
-.header{height:65px;background:#111;display:flex;align-items:center;
-justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:10;
-border-bottom:1px solid #222}
-.logo{font-size:23px;font-weight:bold;cursor:pointer;display:flex;gap:10px;
-align-items:center}.logo i{background:#e50914;padding:8px;border-radius:5px}
-.nav{display:flex;gap:8px}.nav button,.profile{background:none;border:0;
-color:#aaa;padding:10px}.nav button:hover{color:#fff}
-.right{display:flex;gap:10px;align-items:center}
-.search{background:#202020;border:1px solid #292929;padding:9px 12px;
-border-radius:5px;color:white;width:190px;outline:none}
-.profile{background:#222;border-radius:50%;width:38px;height:38px}
-.hero{height:520px;padding:100px 7%;display:flex;align-items:center;
-background:linear-gradient(90deg,#050505 15%,rgba(5,5,5,.75),rgba(5,5,5,.2)),
-url("https://images.unsplash.com/photo-1485846234645-a62644f84728");
-background-size:cover;background-position:center}
-.hero div{max-width:600px}.red{color:#e50914;font-weight:bold;font-size:13px;
-letter-spacing:2px}.hero h1{font-size:55px;margin:15px 0}.hero p{color:#bbb;
-line-height:1.6;margin-bottom:25px}.primary,.secondary{border:0;padding:12px 20px;
-border-radius:5px;color:white;margin-right:8px}.primary{background:#e50914}
-.secondary{background:#292929}.section{padding:40px 5%}.title{display:flex;
-justify-content:space-between;margin-bottom:20px}.title h2 i{color:#e50914}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
-.card{background:#121212;border-radius:6px;overflow:hidden;transition:.25s;
-cursor:pointer}.card:hover{transform:translateY(-6px)}.card img{width:100%;
-height:250px;object-fit:cover}.info{padding:10px}.info h3{font-size:14px;
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{color:#777;
-font-size:11px;margin:7px 0}.rating{color:#ffc107;font-size:12px}
-.actions{display:flex;gap:5px;margin-top:10px}.icon{background:#222;color:#aaa;
-border:0;border-radius:4px;width:32px;height:30px}.icon:hover,.active{background:#e50914;
-color:white}.filters{display:flex;gap:10px;margin-bottom:25px;flex-wrap:wrap}
-select{background:#181818;color:#aaa;border:1px solid #292929;padding:10px;
-border-radius:5px}.page{padding:50px 5%;min-height:550px}.details{min-height:600px;
-padding:90px 8%;display:flex;align-items:center;background-size:cover;
-background-position:center}.details div{max-width:620px}.details h1{font-size:52px;
-margin:15px 0}.details p{color:#bbb;line-height:1.7;margin:20px 0}.empty{text-align:center;
-padding:100px 20px;color:#777}.empty i{font-size:50px;color:#333;margin-bottom:20px}
-.profilePage{max-width:800px;margin:50px auto;background:#111;padding:30px;border-radius:8px}
-.avatar{width:80px;height:80px;border-radius:50%;background:#e50914;display:flex;
-align-items:center;justify-content:center;font-size:28px;margin-bottom:15px}
-.profilePage input{width:100%;background:#202020;border:1px solid #333;padding:12px;
-color:white;border-radius:5px;margin:8px 0 20px}.stats{display:grid;
-grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}.stat{background:#191919;
-padding:20px;text-align:center}.stat i{color:#e50914;font-size:20px}.stat h3{margin:8px}
-.footer{background:#111;padding:40px 6%;display:grid;grid-template-columns:2fr 1fr 1fr;
-gap:30px;color:#777;border-top:1px solid #222}.footer h3{color:white;margin-bottom:12px}
-.footer p{font-size:13px;margin:7px 0}.mobile{display:none}
-@media(max-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}.nav{display:none}
-.mobile{display:block;background:#222;color:white;border:0;padding:9px;border-radius:5px}}
-@media(max-width:650px){.search{width:120px}.hero h1{font-size:38px}.hero{height:500px;padding:50px 25px}
-.grid{grid-template-columns:repeat(2,1fr)}.card img{height:220px}.section{padding:30px 18px}
-.details{padding:60px 25px}.details h1{font-size:38px}.footer{grid-template-columns:1fr}
-.stats{grid-template-columns:1fr}}
-</style>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0b0f;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #111116;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #292930;
+        }
+
+        .logo {
+            color: #e50914;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: #ddd;
+            margin-left: 18px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        nav button:hover {
+            color: #e50914;
+        }
+
+        .search {
+            width: 85%;
+            max-width: 700px;
+            margin: 25px auto;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #19191f;
+            color: white;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .hero {
+            min-height: 350px;
+            padding: 80px 8%;
+            background: linear-gradient(90deg, #111116, #19191f, #0b0b0f);
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .hero span {
+            color: #e50914;
+        }
+
+        .hero p {
+            color: #aaa;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .hero button {
+            margin-top: 25px;
+            padding: 12px 22px;
+            background: #e50914;
+            border: none;
+            border-radius: 7px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .page {
+            padding: 30px 7%;
+        }
+
+        .page h2 {
+            margin-bottom: 25px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: #15151b;
+            border: 1px solid #24242b;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #e50914;
+        }
+
+        .card img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 14px;
+        }
+
+        .content h3 {
+            margin-bottom: 8px;
+        }
+
+        .info {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: #f5c518;
+            margin-bottom: 12px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 7px;
+        }
+
+        .buttons button {
+            flex: 1;
+            padding: 9px;
+            border: none;
+            border-radius: 6px;
+            background: #27272f;
+            color: white;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background: #e50914;
+        }
+
+        .fav.active {
+            color: #e50914;
+        }
+
+        .details {
+            max-width: 700px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .details img {
+            width: 260px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .details h1 {
+            margin-bottom: 15px;
+        }
+
+        .details p {
+            color: #aaa;
+            margin: 10px;
+        }
+
+        .back {
+            background: #27272f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+
+        .empty {
+            text-align: center;
+            color: #888;
+            padding: 60px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            color: #777;
+            border-top: 1px solid #222;
+        }
+
+        @media(max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav button {
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+        }
+
+    </style>
 </head>
 
 <body>
 
-<header class="header">
-<div class="logo" onclick="home()">
-<i class="fa-solid fa-play"></i>CineBox
-</div>
 
-<nav class="nav">
-<button onclick="home()">Home</button>
-<button onclick="moviesPage()">Movies</button>
-<button onclick="seriesPage()">Series</button>
-<button onclick="favoritesPage()">Favorites</button>
-<button onclick="offlinePage()">Offline</button>
-</nav>
+<header>
 
-<div class="right">
-<input id="search" class="search" placeholder="Search..." oninput="searchMovies()">
-<button class="profile" onclick="profilePage()">
-<i class="fa-solid fa-user"></i>
-</button>
-<button class="mobile" onclick="alert('Use the buttons above on desktop view')">
-<i class="fa-solid fa-bars"></i>
-</button>
-</div>
+    <div class="logo">
+        <i class="fa-solid fa-film"></i> CineBox
+    </div>
+
+    <nav>
+
+        <button onclick="home()">
+            <i class="fa-solid fa-house"></i> Home
+        </button>
+
+        <button onclick="showMovies()">
+            <i class="fa-solid fa-film"></i> Movies
+        </button>
+
+        <button onclick="showSeries()">
+            <i class="fa-solid fa-tv"></i> Series
+        </button>
+
+        <button onclick="showFavorites()">
+            <i class="fa-solid fa-heart"></i> Favorites
+        </button>
+
+        <button onclick="showAll()">
+            <i class="fa-solid fa-layer-group"></i> All
+        </button>
+
+    </nav>
+
 </header>
 
-<main id="app"></main>
 
-<footer class="footer">
-<div><h3>CineBox</h3><p>Your personal movie and series library.</p></div>
-<div><h3>Explore</h3><p onclick="home()">Home</p><p onclick="moviesPage()">Movies</p><p onclick="seriesPage()">Series</p></div>
-<div><h3>Social</h3><p><i class="fa-brands fa-instagram"></i> Instagram</p><p><i class="fa-brands fa-youtube"></i> YouTube</p></div>
+<div class="search">
+
+    <input
+        id="search"
+        type="text"
+        placeholder="Search movies and series..."
+        onkeyup="searchMovies()">
+
+</div>
+
+
+<section id="homePage">
+
+    <div class="hero">
+
+        <h1>
+            Welcome to <span>CineBox</span>
+        </h1>
+
+        <p>
+            Discover movies and series, search for your favorites
+            and explore different genres.
+        </p>
+
+        <button onclick="showAll()">
+            <i class="fa-solid fa-play"></i>
+            Explore
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="catalog" class="page" style="display:none;">
+
+    <h2 id="title">
+        All Movies & Series
+    </h2>
+
+    <div id="movieList" class="grid"></div>
+
+</section>
+
+
+<section id="detailsPage" class="page" style="display:none;">
+
+    <div id="details" class="details"></div>
+
+</section>
+
+
+<footer>
+
+    <i class="fa-solid fa-film"></i>
+    CineBox
+
 </footer>
 
+
 <script>
-const movies=[
-{id:1,t:"The Last Mission",y:2026,g:"Action",r:8.7,
-img:"https://images.unsplash.com/photo-1485846234645-a62644f84728"},
-{id:2,t:"Night City",y:2026,g:"Thriller",r:8.4,
-img:"https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c"},
-{id:3,t:"Future World",y:2026,g:"Sci-Fi",r:8.2,
-img:"https://images.unsplash.com/photo-1440404653325-ab127d49abc1"},
-{id:4,t:"Dark Forest",y:2025,g:"Horror",r:7.9,
-img:"https://images.unsplash.com/photo-1500534623283-312aade485b7"},
-{id:5,t:"Love Again",y:2025,g:"Romance",r:8.1,
-img:"https://images.unsplash.com/photo-1518893883800-45cd0954574b"},
-{id:6,t:"The Detective",y:2024,g:"Crime",r:8.5,
-img:"https://images.unsplash.com/photo-1505666287802-931dc83948e9"},
-{id:7,t:"Ocean",y:2024,g:"Drama",r:7.8,
-img:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e"},
-{id:8,t:"The Journey",y:2023,g:"Adventure",r:8,
-img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"},
-{id:9,t:"Hidden Truth",y:2023,g:"Mystery",r:8.3,
-img:"https://images.unsplash.com/photo-1518933165971-611dbc9c412d"},
-{id:10,t:"The Escape",y:2022,g:"Action",r:7.7,
-img:"https://images.unsplash.com/photo-1497366754035-f200968a6e72"},
-{id:11,t:"Broken Hearts",y:2022,g:"Drama",r:8,
-img:"https://images.unsplash.com/photo-1497032205916-ac775f0649ae"},
-{id:12,t:"Space Beyond",y:2021,g:"Sci-Fi",r:8.6,
-img:"https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"}
+
+
+
+let movies = [
+
+    {
+        title: "Inception",
+        year: "2010",
+        genre: "Sci-Fi",
+        rating: "8.8",
+        image: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
+    },
+
+    {
+        title: "Interstellar",
+        year: "2014",
+        genre: "Sci-Fi",
+        rating: "8.7",
+        image: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+    },
+
+    {
+        title: "The Dark Knight",
+        year: "2008",
+        genre: "Action",
+        rating: "9.0",
+        image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+    },
+
+    {
+        title: "Avatar",
+        year: "2009",
+        genre: "Fantasy",
+        rating: "7.9",
+        image: "https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg"
+    },
+
+    {
+        title: "Titanic",
+        year: "1997",
+        genre: "Drama",
+        rating: "7.9",
+        image: "https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
+    },
+
+    {
+        title: "Avengers: Endgame",
+        year: "2019",
+        genre: "Action",
+        rating: "8.4",
+        image: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+    },
+
+    {
+        title: "Spider-Man: No Way Home",
+        year: "2021",
+        genre: "Action",
+        rating: "8.2",
+        image: "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+    },
+
+    {
+        title: "Oppenheimer",
+        year: "2023",
+        genre: "Drama",
+        rating: "8.6",
+        image: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2.jpg"
+    },
+
+    {
+        title: "Barbie",
+        year: "2023",
+        genre: "Comedy",
+        rating: "6.8",
+        image: "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+    },
+
+    {
+        title: "Joker",
+        year: "2019",
+        genre: "Drama",
+        rating: "8.3",
+        image: "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+    },
+
+    {
+        title: "The Matrix",
+        year: "1999",
+        genre: "Sci-Fi",
+        rating: "8.7",
+        image: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
+    },
+
+    {
+        title: "The Hunger Games",
+        year: "2012",
+        genre: "Adventure",
+        rating: "7.2",
+        image: "https://image.tmdb.org/t/p/w500/yXCbOiVDCxO71zI7cuwBRkWot4.jpg"
+    },
+
+    {
+        title: "A Quiet Place",
+        year: "2018",
+        genre: "Horror",
+        rating: "7.5",
+        image: "https://image.tmdb.org/t/p/w500/nAU74GmpUk7t5iklEp3bufwDq4N.jpg"
+    },
+
+    {
+        title: "Forrest Gump",
+        year: "1994",
+        genre: "Drama",
+        rating: "8.8",
+        image: "https://image.tmdb.org/t/p/w500/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg"
+    },
+
+    {
+        title: "The Conjuring",
+        year: "2013",
+        genre: "Horror",
+        rating: "7.5",
+        image: "https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg"
+    }
+
 ];
 
-const shows=[
-{id:20,t:"The Last Kingdom",y:2026,g:"Drama",r:8.8,s:"5 Seasons",
-img:"https://images.unsplash.com/photo-1593784991095-a205069470b6"},
-{id:21,t:"Dark City",y:2026,g:"Thriller",r:8.5,s:"3 Seasons",
-img:"https://images.unsplash.com/photo-1489599849927-2ee91cede3ba"},
-{id:22,t:"New Generation",y:2025,g:"Sci-Fi",r:8.1,s:"2 Seasons",
-img:"https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85"},
-{id:23,t:"City Lights",y:2025,g:"Drama",r:8.3,s:"4 Seasons",
-img:"https://images.unsplash.com/photo-1500534623283-312aade485b7"}
+
+
+let series = [
+
+    {
+        title: "Stranger Things",
+        year: "2016",
+        genre: "Mystery",
+        rating: "8.6",
+        image: "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg"
+    },
+
+    {
+        title: "Wednesday",
+        year: "2022",
+        genre: "Mystery",
+        rating: "8.0",
+        image: "https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg"
+    },
+
+    {
+        title: "Breaking Bad",
+        year: "2008",
+        genre: "Crime",
+        rating: "9.5",
+        image: "https://image.tmdb.org/t/p/w500/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg"
+    },
+
+    {
+        title: "Game of Thrones",
+        year: "2011",
+        genre: "Fantasy",
+        rating: "9.2",
+        image: "https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg"
+    },
+
+    {
+        title: "The Last of Us",
+        year: "2023",
+        genre: "Drama",
+        rating: "8.6",
+        image: "https://image.tmdb.org/t/p/w500/dmo6TYuuJgaYinXBPjrgG9m3q.jpg"
+    },
+
+    {
+        title: "The Witcher",
+        year: "2019",
+        genre: "Fantasy",
+        rating: "8.0",
+        image: "https://image.tmdb.org/t/p/w500/cZ0d3rtvXPVvuiX22sP79K3Hmjz.jpg"
+    },
+
+    {
+        title: "Lucifer",
+        year: "2016",
+        genre: "Fantasy",
+        rating: "8.0",
+        image: "https://image.tmdb.org/t/p/w500/ekZobS8TgEPETZCwED9rL.jpg"
+    },
+
+    {
+        title: "The Vampire Diaries",
+        year: "2009",
+        genre: "Fantasy",
+        rating: "7.7",
+        image: "https://image.tmdb.org/t/p/w500/aBkVgChtyyJaHyZhuy4tUCg8.jpg"
+    },
+
+    {
+        title: "Teen Wolf",
+        year: "2011",
+        genre: "Fantasy",
+        rating: "7.7",
+        image: "https://image.tmdb.org/t/p/w500/xx4B2Yd7F5xG3n7f.jpg"
+    },
+
+    {
+        title: "The 100",
+        year: "2014",
+        genre: "Sci-Fi",
+        rating: "7.6",
+        image: "https://image.tmdb.org/t/p/w500/wcaDIAG1QdXQLRaj4vC1EFdBT2.jpg"
+    },
+
+    {
+        title: "Cobra Kai",
+        year: "2018",
+        genre: "Drama",
+        rating: "8.4",
+        image: "https://image.tmdb.org/t/p/w500/6POBWybSBDBKjSs1VAQcnQC1qyt.jpg"
+    },
+
+    {
+        title: "Supernatural",
+        year: "2005",
+        genre: "Fantasy",
+        rating: "8.4",
+        image: "https://image.tmdb.org/t/p/w500/Ko0w5J3.jpg"
+    }
+
 ];
 
-let fav=JSON.parse(localStorage.getItem("fav")||"[]");
-let off=JSON.parse(localStorage.getItem("off")||"[]");
-let watched=JSON.parse(localStorage.getItem("watched")||"[]");
 
-function save(){
-localStorage.setItem("fav",JSON.stringify(fav));
-localStorage.setItem("off",JSON.stringify(off));
-localStorage.setItem("watched",JSON.stringify(watched));
+
+let allContent = movies.concat(series);
+
+let favorites = [];
+
+
+
+function home() {
+
+    document.getElementById("homePage").style.display = "block";
+    document.getElementById("catalog").style.display = "none";
+    document.getElementById("detailsPage").style.display = "none";
+
 }
 
-function card(m){
-return `<div class="card" onclick="details(${m.id})">
-<img src="${m.img}">
-<div class="info">
-<h3>${m.t}</h3>
-<div class="meta">${m.g} • ${m.y}</div>
-<div class="rating"><i class="fa-solid fa-star"></i> ${m.r}</div>
-<div class="actions">
-<button class="icon ${fav.includes(m.id)?"active":""}" onclick="event.stopPropagation();toggleFav(${m.id})">
-<i class="fa-solid fa-heart"></i></button>
-<button class="icon ${off.includes(m.id)?"active":""}" onclick="event.stopPropagation();download(${m.id})">
-<i class="fa-solid fa-download"></i></button>
-<button class="icon" onclick="event.stopPropagation();watch(${m.id})">
-<i class="fa-solid fa-play"></i></button>
-</div>
-</div></div>`;
+
+
+function showAll() {
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("catalog").style.display = "block";
+    document.getElementById("detailsPage").style.display = "none";
+
+    document.getElementById("title").innerText =
+        "All Movies & Series";
+
+    showCards(allContent);
+
 }
 
-function grid(list){
-return `<div class="grid">${list.map(card).join("")}</div>`;
+
+
+function showMovies() {
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("catalog").style.display = "block";
+    document.getElementById("detailsPage").style.display = "none";
+
+    document.getElementById("title").innerText =
+        "Movies";
+
+    showCards(movies);
+
 }
 
-function home(){
-document.getElementById("app").innerHTML=`
-<section class="hero"><div>
-<span class="red">CINEBOX ORIGINAL</span>
-<h1>The Last Mission</h1>
-<p>A former soldier returns for one final mission. Discover new movies, popular titles and build your own collection.</p>
-<button class="primary" onclick="details(1)"><i class="fa-solid fa-play"></i> Watch Now</button>
-<button class="secondary" onclick="moviesPage()">Browse Movies</button>
-</div></section>
 
-<section class="section">
-<div class="title"><h2><i class="fa-solid fa-film"></i> New Movies</h2></div>
-${grid(movies.filter(x=>x.y==2026))}
-</section>
 
-<section class="section">
-<div class="title"><h2><i class="fa-solid fa-fire"></i> Popular</h2></div>
-${grid([...movies].sort((a,b)=>b.r-a.r).slice(0,6))}
-</section>
+function showSeries() {
 
-<section class="section">
-<div class="title"><h2><i class="fa-solid fa-layer-group"></i> Genres</h2></div>
-<div class="filters">
-<button class="secondary" onclick="genre('Action')">Action</button>
-<button class="secondary" onclick="genre('Drama')">Drama</button>
-<button class="secondary" onclick="genre('Sci-Fi')">Sci-Fi</button>
-<button class="secondary" onclick="genre('Horror')">Horror</button>
-<button class="secondary" onclick="genre('Romance')">Romance</button>
-<button class="secondary" onclick="genre('Crime')">Crime</button>
-</div>
-</section>`;
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("catalog").style.display = "block";
+    document.getElementById("detailsPage").style.display = "none";
+
+    document.getElementById("title").innerText =
+        "Series";
+
+    showCards(series);
+
 }
 
-function moviesPage(){
-document.getElementById("app").innerHTML=`
-<section class="page">
-<div class="title"><h2><i class="fa-solid fa-film"></i> Movies</h2></div>
-<div class="filters">
-<select id="year" onchange="filter()">
-<option value="all">All Years</option>
-<option>2026</option><option>2025</option><option>2024</option>
-<option>2023</option><option>2022</option><option>2021</option>
-</select>
-<select id="genreSelect" onchange="filter()">
-<option value="all">All Genres</option>
-<option>Action</option><option>Drama</option><option>Sci-Fi</option>
-<option>Horror</option><option>Romance</option><option>Crime</option>
-<option>Adventure</option>
-</select>
-</div>
-<div id="movieList">${grid(movies)}</div>
-</section>`;
+
+
+function showCards(data) {
+
+    let html = "";
+
+    data.map(function(movie) {
+
+        html += `
+
+        <div class="card">
+
+            <img src="${movie.image}">
+
+            <div class="content">
+
+                <h3>${movie.title}</h3>
+
+                <p class="info">
+                    ${movie.year} • ${movie.genre}
+                </p>
+
+                <p class="rating">
+                    ★ ${movie.rating}
+                </p>
+
+                <div class="buttons">
+
+                    <button onclick="showDetails(
+                        '${movie.title}',
+                        '${movie.year}',
+                        '${movie.genre}',
+                        '${movie.rating}',
+                        '${movie.image}'
+                    )">
+                        Details
+                    </button>
+
+                    <button
+                        class="fav"
+                        onclick="addFavorite('${movie.title}', this)">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById("movieList").innerHTML = html;
+
 }
 
-function filter(){
-let y=document.getElementById("year").value;
-let g=document.getElementById("genreSelect").value;
-let list=movies.filter(m=>(y=="all"||m.y==y)&&(g=="all"||m.g==g));
-document.getElementById("movieList").innerHTML=grid(list);
+
+
+function searchMovies() {
+
+    let text =
+        document.getElementById("search").value.toLowerCase();
+
+    let result = allContent.filter(function(movie) {
+
+        return movie.title.toLowerCase().includes(text) ||
+               movie.genre.toLowerCase().includes(text);
+
+    });
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("catalog").style.display = "block";
+    document.getElementById("detailsPage").style.display = "none";
+
+    document.getElementById("title").innerText =
+        "Search Results";
+
+    showCards(result);
+
 }
 
-function genre(g){
-document.getElementById("app").innerHTML=`
-<section class="page">
-<div class="title"><h2>${g} Movies</h2></div>${grid(movies.filter(m=>m.g==g))}
-</section>`;
+
+
+
+function addFavorite(title, button) {
+
+    let found = favorites.includes(title);
+
+    if (found) {
+
+        favorites = favorites.filter(function(item) {
+            return item !== title;
+        });
+
+        button.classList.remove("active");
+
+    } else {
+
+        favorites.push(title);
+
+        button.classList.add("active");
+
+    }
+
 }
 
-function seriesPage(){
-document.getElementById("app").innerHTML=`
-<section class="page">
-<div class="title"><h2><i class="fa-solid fa-tv"></i> Series</h2></div>
-<div class="grid">${shows.map(s=>`
-<div class="card" onclick="showDetails(${s.id})">
-<img src="${s.img}">
-<div class="info"><h3>${s.t}</h3>
-<div class="meta">${s.g} • ${s.s}</div>
-<div class="rating"><i class="fa-solid fa-star"></i> ${s.r}</div></div>
-</div>`).join("")}</div></section>`;
+
+
+
+function showFavorites() {
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("catalog").style.display = "block";
+    document.getElementById("detailsPage").style.display = "none";
+
+    document.getElementById("title").innerText =
+        "My Favorites";
+
+    let result = allContent.filter(function(movie) {
+
+        return favorites.includes(movie.title);
+
+    });
+
+    if (result.length == 0) {
+
+        document.getElementById("movieList").innerHTML =
+            "<div class='empty'>No favorites yet.</div>";
+
+    } else {
+
+        showCards(result);
+
+    }
+
 }
 
-function details(id){
-let m=movies.find(x=>x.id==id);
-document.getElementById("app").innerHTML=`
-<section class="details" style="background-image:linear-gradient(90deg,#050505 10%,rgba(5,5,5,.65)),url('${m.img}')">
-<div><span class="red">${m.g}</span><h1>${m.t}</h1>
-<div class="rating">
-    <i class="fa-solid fa-star"></i> 8.7
-</div>
 
-<p>A new story full of action, mystery and unforgettable moments. Enjoy this title in your CineBox library.</p>
-<button class="primary" onclick="watch(${m.id})"><i class="fa-solid fa-play"></i> Watch</button>
-<button class="secondary" onclick="toggleFav(${m.id})"><i class="fa-solid fa-heart"></i> Favorite</button>
-<button class="secondary" onclick="download(${m.id})"><i class="fa-solid fa-download"></i> Offline</button>
-</div></section>`;
+
+
+function showDetails(title, year, genre, rating, image) {
+
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("catalog").style.display = "none";
+    document.getElementById("detailsPage").style.display = "block";
+
+    document.getElementById("details").innerHTML = `
+
+        <button class="back" onclick="showAll()">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+        <br>
+
+        <img src="${image}">
+
+        <h1>${title}</h1>
+
+        <p>
+            <b>Year:</b> ${year}
+        </p>
+
+        <p>
+            <b>Genre:</b> ${genre}
+        </p>
+
+        <p>
+            <b>Rating:</b> ★ ${rating}
+        </p>
+
+        <br>
+
+        <button class="hero button"
+            onclick="watchMovie('${title}')">
+            <i class="fa-solid fa-play"></i>
+            Watch
+        </button>
+
+    `;
+
 }
 
-function showDetails(id){
-let s=shows.find(x=>x.id==id);
-document.getElementById("app").innerHTML=`
-<section class="details" style="background-image:linear-gradient(90deg,#050505 10%,rgba(5,5,5,.65)),url('${s.img}')">
-<div><span class="red">TV SERIES</span><h1>${s.t}</h1>
-<div>${m.y} • 2h 10m • <i class="fa-solid fa-star" style="color:#ffc107"></i> ${m.r}</div>
 
-<p>Watch episodes and follow the story of ${s.t}.</p>
-<button class="primary" onclick="alert('Episode player demo')"><i class="fa-solid fa-play"></i> Watch Episode</button>
-</div></section>`;
+
+function watchMovie(title) {
+
+    alert(
+        "CineBox player for " +
+        title +
+        " will be available here."
+    );
+
 }
 
-function toggleFav(id){
-fav=fav.includes(id)?fav.filter(x=>x!=id):[...fav,id];
-save();home();
-}
 
-function download(id){
-if(!off.includes(id))off.push(id);
-save();alert("Added to Offline");
-}
 
-function favoritesPage(){
-let list=movies.filter(m=>fav.includes(m.id));
-document.getElementById("app").innerHTML=`
-<section class="page"><div class="title"><h2><i class="fa-solid fa-heart"></i> Favorites</h2></div>
-${list.length?grid(list):`<div class="empty"><i class="fa-regular fa-heart"></i><h2>No Favorites Yet</h2><p>Add movies to see them here.</p></div>`}</section>`;
-}
-
-function offlinePage(){
-let list=movies.filter(m=>off.includes(m.id));
-document.getElementById("app").innerHTML=`
-<section class="page"><div class="title"><h2><i class="fa-solid fa-download"></i> Offline Movies</h2></div>
-${list.length?grid(list):`<div class="empty"><i class="fa-solid fa-download"></i><h2>No Offline Movies</h2><p>Your downloaded movies will appear here.</p></div>`}</section>`;
-}
-
-function watch(id){
-let m=movies.find(x=>x.id==id);
-if(!watched.includes(id))watched.push(id);
-save();
-document.getElementById("app").innerHTML=`
-<section class="page">
-<div class="title"><h2>${m.t}</h2><button class="secondary" onclick="details(${id})">Back</button></div>
-<video controls style="width:100%;max-height:600px;background:#000;border-radius:8px"
-poster="${m.img}">
-<source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
-</video>
-<p style="color:#777;margin-top:15px">Demo player. Replace the video source with your own legal video.</p>
-</section>`;
-}
-
-function searchMovies(){
-let q=document.getElementById("search").value.toLowerCase();
-if(!q){home();return}
-let list=movies.filter(m=>m.t.toLowerCase().includes(q)||m.g.toLowerCase().includes(q));
-document.getElementById("app").innerHTML=`
-<section class="page"><div class="title"><h2><i class="fa-solid fa-magnifying-glass"></i> Search</h2></div>
-${list.length?grid(list):`<div class="empty"><i class="fa-solid fa-magnifying-glass"></i><h2>No Results</h2></div>`}</section>`;
-}
-
-function profilePage(){
-document.getElementById("app").innerHTML=`
-<section class="profilePage">
-<div class="avatar"><i class="fa-solid fa-user"></i></div>
-<h1>CineBox User</h1><p style="color:#777">Movie Lover</p>
-<br><label>Username</label>
-<input id="username" value="${localStorage.getItem("user")||"CineBox User"}">
-<button class="primary" onclick="saveProfile()">Save Profile</button>
-<div class="stats">
-<div class="stat"><i class="fa-solid fa-heart"></i><h3>${fav.length}</h3><p>Favorites</p></div>
-<div class="stat"><i class="fa-solid fa-download"></i><h3>${off.length}</h3><p>Offline</p></div>
-<div class="stat"><i class="fa-solid fa-clock"></i><h3>${watched.length}</h3><p>Watched</p></div>
-</div></section>`;
-}
-
-function saveProfile(){
-localStorage.setItem("user",document.getElementById("username").value);
-alert("Profile saved");
-profilePage();
-}
 
 home();
+
 </script>
 
 </body>
-
-  
+    
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
