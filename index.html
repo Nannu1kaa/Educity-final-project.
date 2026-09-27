@@ -9,1273 +9,323 @@
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #0b0b0f;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-header {
-    background: #111116;
-    padding: 18px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    border-bottom: 1px solid #292930;
-}
-
-.logo {
-    color: #e50914;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-nav button {
-    background: none;
-    border: none;
-    color: #ddd;
-    margin-left: 15px;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-nav button:hover {
-    color: #e50914;
-}
-
-.search {
-    width: 85%;
-    max-width: 700px;
-    margin: 25px auto;
-}
-
-.search input {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    background: #19191f;
-    color: white;
-    outline: none;
-    font-size: 15px;
-}
-
-.hero {
-    min-height: 390px;
-    padding: 70px 8%;
-    background:
-    linear-gradient(90deg, rgba(11,11,15,.98), rgba(11,11,15,.65)),
-    url("https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
-.hero h1 {
-    font-size: 50px;
-    margin-bottom: 15px;
-}
-
-.hero span {
-    color: #e50914;
-}
-
-.hero p {
-    color: #ddd;
-    max-width: 600px;
-    line-height: 1.6;
-}
-
-.hero button {
-    margin-top: 25px;
-    padding: 12px 22px;
-    background: #e50914;
-    border: none;
-    border-radius: 7px;
-    color: white;
-    cursor: pointer;
-}
-
-.page {
-    padding: 30px 7%;
-}
-
-.page h2 {
-    margin-bottom: 25px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 22px;
-}
-
-.card {
-    background: #15151b;
-    border: 1px solid #24242b;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: .2s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #e50914;
-}
-
-.card img {
-    width: 100%;
-    height: 270px;
-    object-fit: cover;
-    display: block;
-}
-
-.content {
-    padding: 14px;
-}
-
-.content h3 {
-    margin-bottom: 8px;
-}
-
-.info {
-    color: #999;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-
-.rating {
-    color: #f5c518;
-    margin-bottom: 12px;
-}
-
-.buttons {
-    display: flex;
-    gap: 7px;
-}
-
-.buttons button {
-    flex: 1;
-    padding: 9px;
-    border: none;
-    border-radius: 6px;
-    background: #27272f;
-    color: white;
-    cursor: pointer;
-}
-
-.buttons button:hover {
-    background: #e50914;
-}
-
-.fav.active {
-    color: #e50914;
-}
-
-.details {
-    max-width: 700px;
-    margin: 30px auto;
-    text-align: center;
-}
-
-.details img {
-    width: 260px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.details h1 {
-    margin-bottom: 15px;
-}
-
-.details p {
-    color: #aaa;
-    margin: 10px;
-}
-
-.back {
-    background: #27272f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-bottom: 25px;
-}
-
-.empty {
-    text-align: center;
-    color: #888;
-    padding: 60px;
-}
-
-.section-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.section-title button {
-    background: none;
-    color: #e50914;
-    border: none;
-    cursor: pointer;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    color: #777;
-    border-top: 1px solid #222;
-}
-
-@media(max-width:700px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav button {
-        margin: 5px;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0d12;color:white;font-family:Arial,sans-serif}
+header{height:70px;background:#15151c;display:flex;align-items:center;padding:0 35px;gap:35px;position:sticky;top:0;z-index:10}
+.logo{font-size:27px;font-weight:bold;color:#e50914}
+nav{display:flex;gap:22px}
+nav button,.top button{background:none;border:0;color:#ddd;cursor:pointer;font-size:15px}
+nav button:hover,.top button:hover{color:#e50914}
+.search{margin-left:auto}
+.search input{background:#22232c;border:0;border-radius:20px;padding:10px 15px;color:white;width:210px}
+main{padding:30px 45px}
+.hero{background:linear-gradient(90deg,#15151c,#111118);padding:45px;border-radius:15px;margin-bottom:35px}
+.hero h1{font-size:42px;margin-bottom:12px}
+.hero p{color:#bbb;margin-bottom:20px}
+.btn{background:#e50914;color:white;border:0;padding:11px 18px;border-radius:7px;cursor:pointer}
+.title{font-size:25px;margin:25px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.card{background:#17171f;border-radius:10px;overflow:hidden}
+.card img{width:100%;height:280px;object-fit:cover}
+.card-info{padding:12px}
+.card h3{font-size:17px;margin-bottom:7px}
+.card p{font-size:13px;color:#aaa;margin-bottom:10px}
+.card button{background:#24242e;color:white;border:0;padding:7px 9px;border-radius:6px;margin-right:4px;cursor:pointer}
+.card button:hover{background:#e50914}
+.page{display:none}
+.empty{text-align:center;color:#aaa;padding:50px}
+.profile{background:#17171f;padding:30px;border-radius:12px;max-width:500px}
+.profile input{display:block;width:100%;padding:12px;margin:15px 0;background:#252530;border:0;color:white;border-radius:7px}
+.stats{display:flex;gap:30px;margin:25px 0}
+.stat{text-align:center}
+.stat b{display:block;font-size:25px;color:#e50914}
+.details{display:flex;gap:30px;background:#17171f;padding:25px;border-radius:12px}
+.details img{width:230px;height:340px;object-fit:cover;border-radius:10px}
+.details h1{margin-bottom:15px}
+.details p{color:#bbb;line-height:1.6;margin-bottom:18px}
+.watch{background:#050507;padding:20px;border-radius:12px;text-align:center}
+.player{height:450px;background:#15151c;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:55px;color:#e50914}
+footer{text-align:center;color:#777;padding:40px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-<i class="fa-solid fa-film"></i> CineBox
-</div>
+<div class="logo">CineBox</div>
 
 <nav>
-
-<button onclick="home()">
-<i class="fa-solid fa-house"></i> Home
-</button>
-
-<button onclick="showMovies()">
-<i class="fa-solid fa-film"></i> Movies
-</button>
-
-<button onclick="showSeries()">
-<i class="fa-solid fa-tv"></i> Series
-</button>
-
-<button onclick="showFavorites()">
-<i class="fa-solid fa-heart"></i> Favorites
-</button>
-
-<button onclick="showAll()">
-<i class="fa-solid fa-layer-group"></i> All
-</button>
-
+<button onclick="home()"><i class="fa-solid fa-house"></i> Home</button>
+<button onclick="moviesPage()"><i class="fa-solid fa-film"></i> Movies</button>
+<button onclick="seriesPage()"><i class="fa-solid fa-tv"></i> Series</button>
+<button onclick="favoritesPage()"><i class="fa-solid fa-heart"></i> Favorites</button>
+<button onclick="offlinePage()"><i class="fa-solid fa-download"></i> Offline</button>
+<button onclick="profilePage()"><i class="fa-solid fa-user"></i> Profile</button>
 </nav>
-</header>
-
 
 <div class="search">
-
-<input
-id="search"
-type="text"
-placeholder="Search movies and series..."
-onkeyup="searchMovies()">
-
+<input id="search" placeholder="Search..." onkeyup="searchMovies()">
 </div>
+</header>
 
+<main>
 
+<section id="home" class="page"></section>
+<section id="movies" class="page"></section>
+<section id="series" class="page"></section>
+<section id="favorites" class="page"></section>
+<section id="offline" class="page"></section>
+<section id="profile" class="page"></section>
+<section id="details" class="page"></section>
+<section id="watch" class="page"></section>
 
-<section id="homePage">
-
-<div class="hero">
-
-<h1>
-Welcome to <span>CineBox</span>
-</h1>
-
-<p>
-Discover movies and series, search for your favorites
-and explore popular titles.
-</p>
-
-<button onclick="showAll()">
-<i class="fa-solid fa-play"></i>
-Explore All
-</button>
-
-</div>
-
-
-<div class="page">
-
-<div class="section-title">
-
-<h2>Popular Movies</h2>
-
-<button onclick="showMovies()">
-See All
-<i class="fa-solid fa-arrow-right"></i>
-</button>
-
-</div>
-
-<div id="homeMovies" class="grid"></div>
-
-</div>
-
-
-<div class="page">
-
-<div class="section-title">
-
-<h2>Popular Series</h2>
-
-<button onclick="showSeries()">
-See All
-<i class="fa-solid fa-arrow-right"></i>
-</button>
-
-</div>
-
-<div id="homeSeries" class="grid"></div>
-
-</div>
-
-</section>
-
-
-
-<section id="catalog" class="page" style="display:none;">
-
-<h2 id="title">All Movies & Series</h2>
-
-<div id="movieList" class="grid"></div>
-
-</section>
-
-
-
-<section id="detailsPage" class="page" style="display:none;">
-
-<div id="details" class="details"></div>
-
-</section>
-
+</main>
 
 <footer>
-
-<i class="fa-solid fa-film"></i>
-CineBox
-
+CineBox © 2026
 </footer>
-
 
 <script>
 
-
-
-let movies = [
-
-{
-title:"Inception",
-year:"2010",
-genre:"Sci-Fi",
-rating:"8.8",
-image:"https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
-},
-
-{
-title:"Interstellar",
-year:"2014",
-genre:"Sci-Fi",
-rating:"8.7",
-image:"https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-},
-
-{
-title:"The Dark Knight",
-year:"2008",
-genre:"Action",
-rating:"9.0",
-image:"https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
-},
-
-{
-title:"Avatar",
-year:"2009",
-genre:"Fantasy",
-rating:"7.9",
-image:"https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg"
-},
-
-{
-title:"Titanic",
-year:"1997",
-genre:"Drama",
-rating:"7.9",
-image:"https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg"
-},
-
-{
-title:"Avengers: Endgame",
-year:"2019",
-genre:"Action",
-rating:"8.4",
-image:"https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
-},
-
-{
-title:"Spider-Man: No Way Home",
-year:"2021",
-genre:"Action",
-rating:"8.2",
-image:"https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
-},
-
-{
-title:"Oppenheimer",
-year:"2023",
-genre:"Drama",
-rating:"8.6",
-image:"https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2.jpg"
-},
-
-{
-title:"Barbie",
-year:"2023",
-genre:"Comedy",
-rating:"6.8",
-image:"https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
-},
-
-{
-title:"Joker",
-year:"2019",
-genre:"Drama",
-rating:"8.3",
-image:"https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
-},
-
-{
-title:"The Matrix",
-year:"1999",
-genre:"Sci-Fi",
-rating:"8.7",
-image:"https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
-},
-
-{
-title:"The Hunger Games",
-year:"2012",
-genre:"Adventure",
-rating:"7.2",
-image:"https://image.tmdb.org/t/p/w500/yXCbOiVDCxO71zI7cuwBRkWot4.jpg"
-},
-
-{
-title:"A Quiet Place",
-year:"2018",
-genre:"Horror",
-rating:"7.5",
-image:"https://image.tmdb.org/t/p/w500/nAU74GmpUk7t5iklEp3bufwDq4N.jpg"
-},
-
-{
-title:"Forrest Gump",
-year:"1994",
-genre:"Drama",
-rating:"8.8",
-image:"https://image.tmdb.org/t/p/w500/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg"
-},
-
-{
-title:"The Conjuring",
-year:"2013",
-genre:"Horror",
-rating:"7.5",
-image:"https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg"
-},
-
-{
-title:"Dune",
-year:"2021",
-genre:"Sci-Fi",
-rating:"8.0",
-image:"https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg"
-},
-
-{
-title:"Dune: Part Two",
-year:"2024",
-genre:"Sci-Fi",
-rating:"8.5",
-image:"https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg"
-},
-
-{
-title:"The Batman",
-year:"2022",
-genre:"Crime",
-rating:"7.8",
-image:"https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg"
-},
-
-{
-title:"Top Gun: Maverick",
-year:"2022",
-genre:"Action",
-rating:"8.2",
-image:"https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1i8pQx5O.jpg"
-},
-
-{
-title:"John Wick",
-year:"2014",
-genre:"Action",
-rating:"7.4",
-image:"https://image.tmdb.org/t/p/w500/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg"
-},
-
-{
-title:"The Maze Runner",
-year:"2014",
-genre:"Sci-Fi",
-rating:"6.8",
-image:"https://image.tmdb.org/t/p/w500/ode14q7WtDugFDp78fo9lCsmay9.jpg"
-},
-
-{
-title:"Me Before You",
-year:"2016",
-genre:"Romance",
-rating:"7.4",
-image:"https://image.tmdb.org/t/p/w500/Ia3dzj5LnC1g3rT4.jpg"
-},
-
-{
-title:"The Notebook",
-year:"2004",
-genre:"Romance",
-rating:"7.8",
-image:"https://image.tmdb.org/t/p/w500/rNzQyW4f8B8c7Q8K8qY1Q2N5.jpg"
-},
-
-{
-title:"La La Land",
-year:"2016",
-genre:"Romance",
-rating:"8.0",
-image:"https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg"
-},
-
-{
-title:"Mean Girls",
-year:"2004",
-genre:"Comedy",
-rating:"7.1",
-image:"https://image.tmdb.org/t/p/w500/lwT2yV2yV5c1V7rY5.jpg"
-},
-
-{
-title:"Home Alone",
-year:"1990",
-genre:"Comedy",
-rating:"7.7",
-image:"https://image.tmdb.org/t/p/w500/onTSipZ8R3bliBdKfPtsDuHTdlL.jpg"
-},
-
-{
-title:"The Devil Wears Prada",
-year:"2006",
-genre:"Comedy",
-rating:"7.0",
-image:"https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
-},
-
-{
-title:"Coco",
-year:"2017",
-genre:"Animation",
-rating:"8.4",
-image:"https://image.tmdb.org/t/p/w500/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg"
-},
-
-{
-title:"Toy Story",
-year:"1995",
-genre:"Animation",
-rating:"8.3",
-image:"https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg"
-},
-
-{
-title:"Finding Nemo",
-year:"2003",
-genre:"Animation",
-rating:"8.2",
-image:"https://image.tmdb.org/t/p/w500/eHuGQ10FUzK1mdOY69wF5pGgEf5.jpg"
-},
-
-{
-title:"Up",
-year:"2009",
-genre:"Animation",
-rating:"8.3",
-image:"https://image.tmdb.org/t/p/w500/mFvoEwSfLqbcWwFsDjQebn9bzFe.jpg"
-},
-
-{
-title:"Ratatouille",
-year:"2007",
-genre:"Animation",
-rating:"8.1",
-image:"https://image.tmdb.org/t/p/w500/t3vaWRPSf6WjDSamIkKDs1iQWna.jpg"
-},
-
-{
-title:"How to Train Your Dragon",
-year:"2010",
-genre:"Animation",
-rating:"8.1",
-image:"https://image.tmdb.org/t/p/w500/ygGmAO60t8GyqLGSZS5oZK0Y.jpg"
-},
-
-{
-title:"The Incredibles",
-year:"2004",
-genre:"Animation",
-rating:"8.0",
-image:"https://image.tmdb.org/t/p/w500/2LqaLgk4Z226KkgPJuiOQ58.jpg"
-},
-
-{
-title:"The Prestige",
-year:"2006",
-genre:"Mystery",
-rating:"8.5",
-image:"https://image.tmdb.org/t/p/w500/5MXyQfz8xUP3dIFh.jpg"
-},
-
-{
-title:"Gone Girl",
-year:"2014",
-genre:"Mystery",
-rating:"8.1",
-image:"https://image.tmdb.org/t/p/w500/ts996lKsxvjkRZy0fFlG.jpg"
-},
-
-{
-title:"Shutter Island",
-year:"2010",
-genre:"Mystery",
-rating:"8.2",
-image:"https://image.tmdb.org/t/p/w500/4GDy0PHYX3VRXUvw.jpg"
-},
-
-{
-title:"Knives Out",
-year:"2019",
-genre:"Mystery",
-rating:"7.9",
-image:"https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x3.jpg"
-},
-
-{
-title:"Now You See Me",
-year:"2013",
-genre:"Mystery",
-rating:"7.2",
-image:"https://image.tmdb.org/t/p/w500/tXt2mTM.jpg"
-},
-
-{
-title:"The Greatest Showman",
-year:"2017",
-genre:"Musical",
-rating:"7.5",
-image:"https://image.tmdb.org/t/p/w500/b9CeobiihCx1.jpg"
-},
-
-{
-title:"Bohemian Rhapsody",
-year:"2018",
-genre:"Drama",
-rating:"7.9",
-image:"https://image.tmdb.org/t/p/w500/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg"
-},
-
-{
-title:"The Pursuit of Happyness",
-year:"2006",
-genre:"Drama",
-rating:"8.0",
-image:"https://image.tmdb.org/t/p/w500/lBYOKAMcxIvuk9s9.jpg"
-},
-
-{
-title:"Black Swan",
-year:"2010",
-genre:"Drama",
-rating:"8.0",
-image:"https://image.tmdb.org/t/p/w500/rH19vkjh0.jpg"
-},
-
-{
-title:"Parasite",
-year:"2019",
-genre:"Thriller",
-rating:"8.5",
-image:"https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
-},
-
-{
-title:"Mad Max: Fury Road",
-year:"2015",
-genre:"Action",
-rating:"8.1",
-image:"https://image.tmdb.org/t/p/w500/hA2ple9q4QN4YQ5m.jpg"
-},
-
-{
-title:"Jurassic Park",
-year:"1993",
-genre:"Adventure",
-rating:"8.2",
-image:"https://image.tmdb.org/t/p/w500/fjTU1Bgh3KJu4Gso.jpg"
-},
-
-{
-title:"The Truman Show",
-year:"1998",
-genre:"Drama",
-rating:"8.2",
-image:"https://image.tmdb.org/t/p/w500/loYwW2q.jpg"
-},
-
-{
-title:"Catch Me If You Can",
-year:"2002",
-genre:"Crime",
-rating:"8.1",
-image:"https://image.tmdb.org/t/p/w500/ctjEj2xM.jpg"
-},
-
-{
-title:"The Wolf of Wall Street",
-year:"2013",
-genre:"Comedy",
-rating:"8.2",
-image:"https://image.tmdb.org/t/p/w500/pWHf4kh.jpg"
-},
-
-{
-title:"Gladiator",
-year:"2000",
-genre:"Action",
-rating:"8.5",
-image:"https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg"
-},
-
-{
-title:"The Green Mile",
-year:"1999",
-genre:"Drama",
-rating:"8.6",
-image:"https://image.tmdb.org/t/p/w500/8VG8fDNiy50H4FedGwb3F.jpg"
-},
-
-{
-title:"Saving Private Ryan",
-year:"1998",
-genre:"War",
-rating:"8.6",
-image:"https://image.tmdb.org/t/p/w500/uqx37w8.jpg"
-},
-
-{
-title:"The Lion King",
-year:"1994",
-genre:"Animation",
-rating:"8.5",
-image:"https://image.tmdb.org/t/p/w500/sKCr78MXSLixwmZ8DyJL.jpg"
-}
-
+var movies=[
+["Inception","Sci-Fi","2010","https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"],
+["Interstellar","Sci-Fi","2014","https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"],
+["The Dark Knight","Action","2008","https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"],
+["Avatar","Fantasy","2009","https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg"],
+["Titanic","Drama","1997","https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx1dkEG6beH4tI.jpg"],
+["The Matrix","Action","1999","https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"],
+["Gladiator","Action","2000","https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg"],
+["Joker","Drama","2019","https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"],
+["Avengers: Endgame","Action","2019","https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"],
+["Spider-Man: No Way Home","Action","2021","https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"],
+["Black Panther","Action","2018","https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg"],
+["Iron Man","Action","2008","https://image.tmdb.org/t/p/w500/78lPtwv72eTNqFW9COBYI0dWDJa.jpg"],
+["Thor","Fantasy","2011","https://image.tmdb.org/t/p/w500/prSfAi1xGrhLQNxVSUfFj3nZQ.jpg"],
+["Doctor Strange","Fantasy","2016","https://image.tmdb.org/t/p/w500/uGBVj3bEbCoqZa5yZbW9r9Y5Y8L.jpg"],
+["Guardians of the Galaxy","Action","2014","https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg"],
+["Deadpool","Comedy","2016","https://image.tmdb.org/t/p/w500/fSRb7vyIP8rQpL0I47P3qUsEKX3.jpg"],
+["Venom","Action","2018","https://image.tmdb.org/t/p/w500/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg"],
+["It","Horror","2017","https://image.tmdb.org/t/p/w500/9E2y5Q7WlCVNEhP5g3g3xZ4tQ.jpg"],
+["A Quiet Place","Horror","2018","https://image.tmdb.org/t/p/w500/nAU74GmpUk7t5iklEp3bufwDq4N.jpg"],
+["The Conjuring","Horror","2013","https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg"],
+["Home Alone","Comedy","1990","https://image.tmdb.org/t/p/w500/onTSipZ8R3bliBdKfPtsDu63oKa.jpg"],
+["Harry Potter and the Sorcerer's Stone","Fantasy","2001","https://image.tmdb.org/t/p/w500/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"],
+["Harry Potter and the Chamber of Secrets","Fantasy","2002","https://image.tmdb.org/t/p/w500/1sdL2CR8xN2jQ5mT7eG3G9eQ.jpg"],
+["The Hunger Games","Adventure","2012","https://image.tmdb.org/t/p/w500/yXCbOiVDCxO71m3v5y5D0D3zQ.jpg"],
+["Divergent","Action","2014","https://image.tmdb.org/t/p/w500/aNh4Q3iuPK8wM7bLxP0c1.jpg"],
+["The Maze Runner","Action","2014","https://image.tmdb.org/t/p/w500/coss7rgv3t2QxR3L2F6.jpg"],
+["Twilight","Romance","2008","https://image.tmdb.org/t/p/w500/3Gkb6jm6962ADUPaCBMhoK1b8.jpg"],
+["The Fault in Our Stars","Drama","2014","https://image.tmdb.org/t/p/w500/cbN6u4J5v3Yq.jpg"],
+["Me Before You","Romance","2016","https://image.tmdb.org/t/p/w500/Ia3dzj5LnC.jpg"],
+["The Notebook","Romance","2004","https://image.tmdb.org/t/p/w500/rNzQyW4f8B8c.jpg"]
 ];
 
-
-
-let series = [
-
-{
-title:"Stranger Things",
-year:"2016",
-genre:"Mystery",
-rating:"8.6",
-image:"https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg"
-},
-
-{
-title:"Wednesday",
-year:"2022",
-genre:"Mystery",
-rating:"8.0",
-image:"https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg"
-},
-
-{
-title:"Breaking Bad",
-year:"2008",
-genre:"Crime",
-rating:"9.5",
-image:"https://image.tmdb.org/t/p/w500/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg"
-},
-
-{
-title:"Game of Thrones",
-year:"2011",
-genre:"Fantasy",
-rating:"9.2",
-image:"https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg"
-},
-
-{
-title:"The Last of Us",
-year:"2023",
-genre:"Drama",
-rating:"8.6",
-image:"https://image.tmdb.org/t/p/w500/dmo6TYuuJgaYinXBPjrgG9m3q.jpg"
-},
-
-{
-title:"The Witcher",
-year:"2019",
-genre:"Fantasy",
-rating:"8.0",
-image:"https://image.tmdb.org/t/p/w500/cZ0d3rtvXPVvuiX22sP79K3Hmjz.jpg"
-},
-
-{
-title:"Lucifer",
-year:"2016",
-genre:"Fantasy",
-rating:"8.0",
-image:"https://image.tmdb.org/t/p/w500/ekZobS8TgEPETZCwED9rL.jpg"
-},
-
-{
-title:"The Vampire Diaries",
-year:"2009",
-genre:"Fantasy",
-rating:"7.7",
-image:"https://image.tmdb.org/t/p/w500/aBkVgChtyyJaHyZhuy4tUCg8.jpg"
-},
-
-{
-title:"Teen Wolf",
-year:"2011",
-genre:"Fantasy",
-rating:"7.7",
-image:"https://image.tmdb.org/t/p/w500/4E1o0r6.jpg"
-},
-
-{
-title:"The 100",
-year:"2014",
-genre:"Sci-Fi",
-rating:"7.6",
-image:"https://image.tmdb.org/t/p/w500/wcaDIAG1QdXQLRaj4vC1EFdBT2.jpg"
-},
-
-{
-title:"Cobra Kai",
-year:"2018",
-genre:"Drama",
-rating:"8.4",
-image:"https://image.tmdb.org/t/p/w500/6POBWybSBDBKjSs1VAQcnQC1qyt.jpg"
-},
-
-{
-title:"Supernatural",
-year:"2005",
-genre:"Fantasy",
-rating:"8.4",
-image:"https://image.tmdb.org/t/p/w500/Ko0w5J3.jpg"
-},
-
-{
-title:"The Boys",
-year:"2019",
-genre:"Action",
-rating:"8.6",
-image:"https://image.tmdb.org/t/p/w500/stTEycfG9928HYGEISs9x8.jpg"
-},
-
-{
-title:"Peaky Blinders",
-year:"2013",
-genre:"Crime",
-rating:"8.7",
-image:"https://image.tmdb.org/t/p/w500/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg"
-},
-
-{
-title:"Sherlock",
-year:"2010",
-genre:"Mystery",
-rating:"9.1",
-image:"https://image.tmdb.org/t/p/w500/7WTsnHkbA0FaG6.jpg"
-},
-
-{
-title:"Friends",
-year:"1994",
-genre:"Comedy",
-rating:"8.9",
-image:"https://image.tmdb.org/t/p/w500/f496cm9enuEsZkSPzCwnTESEK5s.jpg"
-},
-
-{
-title:"The Office",
-year:"2005",
-genre:"Comedy",
-rating:"9.0",
-image:"https://image.tmdb.org/t/p/w500/qWnJzyZhyy74gjpSjIXWmuk0ifX.jpg"
-},
-
-{
-title:"The Walking Dead",
-year:"2010",
-genre:"Drama",
-rating:"8.1",
-image:"https://image.tmdb.org/t/p/w500/xf9wuDcqlUPWABZNeDKPbZUjWx0.jpg"
-},
-
-{
-title:"Black Mirror",
-year:"2011",
-genre:"Sci-Fi",
-rating:"8.7",
-image:"https://image.tmdb.org/t/p/w500/7PRddO7z7mcPi21nZTCMGShAyy1.jpg"
-},
-
-{
-title:"Dark",
-year:"2017",
-genre:"Mystery",
-rating:"8.7",
-image:"https://image.tmdb.org/t/p/w500/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg"
-}
-
+var series=[
+["Stranger Things","Mystery","2016","https://image.tmdb.org/t/p/w500/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg"],
+["Wednesday","Mystery","2022","https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg"],
+["The Vampire Diaries","Drama","2009","https://image.tmdb.org/t/p/w500/kLEha9zVVv8acGFKTX4gjvPqE2.jpg"],
+["The Originals","Fantasy","2013","https://image.tmdb.org/t/p/w500/qc4c0YQZ2g3z.jpg"],
+["Legacies","Fantasy","2018","https://image.tmdb.org/t/p/w500/qTZIgXrBKURBK1KrsT.jpg"],
+["The 100","Sci-Fi","2014","https://image.tmdb.org/t/p/w500/wcaDIAG1QdXQLRaj4vC1efK.jpg"],
+["Lucifer","Fantasy","2016","https://image.tmdb.org/t/p/w500/ekZobS8isE6mA53RAi.jpg"],
+["Riverdale","Drama","2017","https://image.tmdb.org/t/p/w500/sY3m2g3kQ.jpg"],
+["Teen Wolf","Fantasy","2011","https://image.tmdb.org/t/p/w500/9Q6m0.jpg"],
+["Pretty Little Liars","Mystery","2010","https://image.tmdb.org/t/p/w500/g7eX.jpg"],
+["Cobra Kai","Action","2018","https://image.tmdb.org/t/p/w500/6POBWybSBDBKjSs1VAQcnQC1qyt.jpg"],
+["You","Drama","2018","https://image.tmdb.org/t/p/w500/8gK6z.jpg"],
+["Ginny & Georgia","Drama","2021","https://image.tmdb.org/t/p/w500/8W8.jpg"],
+["Outer Banks","Adventure","2020","https://image.tmdb.org/t/p/w500/ovM3.jpg"],
+["Wednesday","Mystery","2022","https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg"]
 ];
 
+var fav=JSON.parse(localStorage.getItem("favorites"))||[];
+var off=JSON.parse(localStorage.getItem("offline"))||[];
 
-let allContent = movies.concat(series);
-
-let favorites = [];
-
-
-
-function makeCard(movie) {
-
-    return `
-
-    <div class="card">
-
-        <img src="${movie.image}" alt="${movie.title}">
-
-        <div class="content">
-
-            <h3>${movie.title}</h3>
-
-            <p class="info">
-                ${movie.year} • ${movie.genre}
-            </p>
-
-            <p class="rating">
-                ★ ${movie.rating}
-            </p>
-
-            <div class="buttons">
-
-                <button onclick="showDetails(
-                    '${movie.title.replace(/'/g,"\\'")}',
-                    '${movie.year}',
-                    '${movie.genre}',
-                    '${movie.rating}',
-                    '${movie.image}'
-                )">
-                    Details
-                </button>
-
-                <button
-                    class="fav"
-                    onclick="addFavorite('${movie.title.replace(/'/g,"\\'")}',this)">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    `;
+function save(){
+localStorage.setItem("favorites",JSON.stringify(fav));
+localStorage.setItem("offline",JSON.stringify(off));
 }
 
-
-
-function showHomeMovies() {
-
-    let popular = movies.slice(0, 8);
-
-    document.getElementById("homeMovies").innerHTML =
-        popular.map(makeCard).join("");
-
+function hide(){
+var pages=document.querySelectorAll(".page");
+for(var i=0;i<pages.length;i++) pages[i].style.display="none";
 }
 
-
-
-function showHomeSeries() {
-
-    let popular = series.slice(0, 6);
-
-    document.getElementById("homeSeries").innerHTML =
-        popular.map(makeCard).join("");
-
+function card(m){
+return `
+<div class="card">
+<img src="${m[3]}" alt="${m[0]}" onerror="this.src='https://placehold.co/500x750/15151c/ffffff?text=No+Image'">
+<div class="card-info">
+<h3>${m[0]}</h3>
+<p>${m[1]} • ${m[2]}</p>
+<button onclick="details('${m[0]}')"><i class="fa-solid fa-circle-info"></i></button>
+<button onclick="favorite('${m[0]}')"><i class="fa-solid fa-heart"></i></button>
+<button onclick="offline('${m[0]}')"><i class="fa-solid fa-download"></i></button>
+<button onclick="watch('${m[0]}')"><i class="fa-solid fa-play"></i></button>
+</div>
+</div>`;
 }
 
-
-
-function home() {
-
-    document.getElementById("homePage").style.display = "block";
-    document.getElementById("catalog").style.display = "none";
-    document.getElementById("detailsPage").style.display = "none";
-
-    showHomeMovies();
-    showHomeSeries();
-
+function show(list,id,title){
+hide();
+var page=document.getElementById(id);
+page.style.display="block";
+page.innerHTML=`<h2 class="title">${title}</h2><div class="grid">${list.map(card).join("")}</div>`;
 }
 
-
-
-function showAll() {
-
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("catalog").style.display = "block";
-    document.getElementById("detailsPage").style.display = "none";
-
-    document.getElementById("title").innerText =
-        "All Movies & Series";
-
-    document.getElementById("movieList").innerHTML =
-        allContent.map(makeCard).join("");
-
+function home(){
+hide();
+var page=document.getElementById("home");
+page.style.display="block";
+page.innerHTML=`
+<div class="hero">
+<h1>Welcome to CineBox</h1>
+<p>Discover movies and series in one place.</p>
+<button class="btn" onclick="moviesPage()">Explore Movies</button>
+</div>
+<h2 class="title">Popular Movies</h2>
+<div class="grid">${movies.slice(0,10).map(card).join("")}</div>
+<h2 class="title">Popular Series</h2>
+<div class="grid">${series.slice(0,10).map(card).join("")}</div>`;
 }
 
-
-
-function showMovies() {
-
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("catalog").style.display = "block";
-    document.getElementById("detailsPage").style.display = "none";
-
-    document.getElementById("title").innerText = "Movies";
-
-    document.getElementById("movieList").innerHTML =
-        movies.map(makeCard).join("");
-
+function moviesPage(){
+show(movies,"movies","All Movies");
 }
 
-
-
-function showSeries() {
-
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("catalog").style.display = "block";
-    document.getElementById("detailsPage").style.display = "none";
-
-    document.getElementById("title").innerText = "Series";
-
-    document.getElementById("movieList").innerHTML =
-        series.map(makeCard).join("");
-
+function seriesPage(){
+show(series,"series","All Series");
 }
 
-
-
-function searchMovies() {
-
-    let text =
-        document.getElementById("search").value.toLowerCase();
-
-    if (text == "") {
-        home();
-        return;
-    }
-
-    let result = allContent.filter(function(movie) {
-
-        return movie.title.toLowerCase().includes(text) ||
-               movie.genre.toLowerCase().includes(text) ||
-               movie.year.includes(text);
-
-    });
-
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("catalog").style.display = "block";
-    document.getElementById("detailsPage").style.display = "none";
-
-    document.getElementById("title").innerText =
-        "Search Results";
-
-    if (result.length == 0) {
-
-        document.getElementById("movieList").innerHTML =
-            "<div class='empty'>No movies or series found.</div>";
-
-    } else {
-
-        document.getElementById("movieList").innerHTML =
-            result.map(makeCard).join("");
-
-    }
-
+function favorite(name){
+var index=fav.indexOf(name);
+if(index==-1) fav.push(name);
+else fav.splice(index,1);
+save();
 }
 
-
-
-function addFavorite(title, button) {
-
-    if (favorites.includes(title)) {
-
-        favorites = favorites.filter(function(item) {
-            return item !== title;
-        });
-
-        button.classList.remove("active");
-
-        button.innerHTML =
-            '<i class="fa-regular fa-heart"></i>';
-
-    } else {
-
-        favorites.push(title);
-
-        button.classList.add("active");
-
-        button.innerHTML =
-            '<i class="fa-solid fa-heart"></i>';
-
-    }
-
+function offline(name){
+var index=off.indexOf(name);
+if(index==-1) off.push(name);
+save();
+alert("Added to Offline");
 }
 
+function getMovie(name){
+for(var i=0;i<movies.length;i++)
+if(movies[i][0]==name)return movies[i];
 
-
-function showFavorites() {
-
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("catalog").style.display = "block";
-    document.getElementById("detailsPage").style.display = "none";
-
-    document.getElementById("title").innerText =
-        "My Favorites";
-
-    let result = allContent.filter(function(movie) {
-        return favorites.includes(movie.title);
-    });
-
-    if (result.length == 0) {
-
-        document.getElementById("movieList").innerHTML =
-            "<div class='empty'>No favorites yet.</div>";
-
-    } else {
-
-        document.getElementById("movieList").innerHTML =
-            result.map(makeCard).join("");
-
-    }
-
+for(var i=0;i<series.length;i++)
+if(series[i][0]==name)return series[i];
 }
 
+function details(name){
+var m=getMovie(name);
+hide();
+var page=document.getElementById("details");
+page.style.display="block";
 
-
-function showDetails(title,year,genre,rating,image) {
-
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("catalog").style.display = "none";
-    document.getElementById("detailsPage").style.display = "block";
-
-    document.getElementById("details").innerHTML = `
-
-        <button class="back" onclick="showAll()">
-            <i class="fa-solid fa-arrow-left"></i>
-            Back
-        </button>
-
-        <br>
-
-        <img src="${image}" alt="${title}">
-
-        <h1>${title}</h1>
-
-        <p><b>Year:</b> ${year}</p>
-
-        <p><b>Genre:</b> ${genre}</p>
-
-        <p><b>Rating:</b> ★ ${rating}</p>
-
-        <button
-        class="hero button"
-        onclick="watchMovie('${title.replace(/'/g,"\\'")}')">
-
-            <i class="fa-solid fa-play"></i>
-            Watch
-
-        </button>
-
-    `;
-
+page.innerHTML=`
+<div class="details">
+<img src="${m[3]}" onerror="this.src='https://placehold.co/500x750/15151c/ffffff?text=No+Image'">
+<div>
+<h1>${m[0]}</h1>
+<p>Genre: ${m[1]}</p>
+<p>Year: ${m[2]}</p>
+<p>Welcome to CineBox. Here you can save this title to Favorites or Offline.</p>
+<button class="btn" onclick="favorite('${m[0]}')">Add to Favorites</button>
+<button class="btn" onclick="offline('${m[0]}')">Offline</button>
+<button class="btn" onclick="watch('${m[0]}')">Watch</button>
+</div>
+</div>`;
 }
 
-
-
-function watchMovie(title) {
-
-    alert(
-        "Watch page for " +
-        title +
-        " will be added here."
-    );
-
+function watch(name){
+hide();
+var page=document.getElementById("watch");
+page.style.display="block";
+page.innerHTML=`
+<div class="watch">
+<h2>${name}</h2>
+<div class="player"><i class="fa-solid fa-play"></i></div>
+<p style="margin-top:15px;color:#aaa">CineBox demo player</p>
+</div>`;
 }
 
+function favoritesPage(){
+var list=[];
+for(var i=0;i<fav.length;i++){
+var m=getMovie(fav[i]);
+if(m)list.push(m);
+}
+if(list.length==0){
+hide();
+var p=document.getElementById("favorites");
+p.style.display="block";
+p.innerHTML='<div class="empty">No favorite movies yet.</div>';
+}else show(list,"favorites","Favorites");
+}
 
+function offlinePage(){
+var list=[];
+for(var i=0;i<off.length;i++){
+var m=getMovie(off[i]);
+if(m)list.push(m);
+}
+if(list.length==0){
+hide();
+var p=document.getElementById("offline");
+p.style.display="block";
+p.innerHTML='<div class="empty">No offline titles yet.</div>';
+}else show(list,"offline","Offline");
+}
+
+function searchMovies(){
+var q=document.getElementById("search").value.toLowerCase();
+if(q==""){
+home();
+return;
+}
+
+var all=movies.concat(series);
+var result=all.filter(function(m){
+return m[0].toLowerCase().includes(q);
+});
+
+show(result,"movies","Search Results");
+}
+
+function profilePage(){
+hide();
+var p=document.getElementById("profile");
+p.style.display="block";
+
+var name=localStorage.getItem("username")||"Guest";
+
+p.innerHTML=`
+<div class="profile">
+<h2>Profile</h2>
+<input id="username" value="${name}" placeholder="Your name">
+<button class="btn" onclick="saveProfile()">Save Profile</button>
+
+<div class="stats">
+<div class="stat"><b>${fav.length}</b>Favorites</div>
+<div class="stat"><b>${off.length}</b>Offline</div>
+</div>
+</div>`;
+}
+
+function saveProfile(){
+var name=document.getElementById("username").value;
+localStorage.setItem("username",name);
+alert("Profile saved");
+profilePage();
+}
 
 home();
 
 </script>
-
 </body>
 
     
