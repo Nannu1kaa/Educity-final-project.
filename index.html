@@ -362,7 +362,7 @@ img { max-width: 100%; display: block;}
   <div class="modal-box">
     <button class="close-modal" id="closeMovieModal">×</button>
     <div class="detail-grid">
-      <img id="detailImage" src="" alt="Movie poster" onerror="this.style.display='none'">
+      <img id="detailImage" src="" alt="Movie poster">
       <div class="detail-info">
         <h2 id="detailTitle">Movie title</h2>
         <div class="detail-tags">
@@ -406,12 +406,15 @@ const movies = [
   {id:7,title:"Joker",genre:"Drama",year:"2019",rating:"8.1",duration:"2h 2m",cast:"Joaquin Phoenix, Robert De Niro, Zazie Beetz",image:"https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",description:"A troubled man begins a transformation that changes Gotham."},
   {id:8,title:"Dune",genre:"Sci-Fi",year:"2021",rating:"8.0",duration:"2h 35m",cast:"Timothée Chalamet, Zendaya, Rebecca Ferguson",image:"https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",description:"A young heir travels to a dangerous desert world."},
   {id:9,title:"Oppenheimer",genre:"Drama",year:"2023",rating:"8.6",duration:"3h 0m",cast:"Cillian Murphy, Emily Blunt, Robert Downey Jr.",image:"https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",description:"The story of the scientist who led the Manhattan Project."},
-  {id:10,title:"Barbie",genre:"Comedy",year:"2023",rating:"7.0",duration:"1h 54m",cast:"Margot Robbie, Ryan Gosling, America Ferrera",image:"https://image.tmdb.org/t/p/w500/iuFNMinLe26HVySpdOqoq7U9fZ9.jpg",description:"Barbie leaves her perfect world and discovers real life."},
   {id:11,title:"Inside Out",genre:"Animation",year:"2015",rating:"8.1",duration:"1h 35m",cast:"Amy Poehler, Phyllis Smith, Bill Hader",image:"https://image.tmdb.org/t/p/w500/2H1TmgdfNtsKlU9jKdeNyYL5y8T.jpg",description:"A young girl's emotions try to guide her through a big change."},
-  {id:12,title:"Frozen",genre:"Animation",year:"2013",rating:"7.4",duration:"1h 42m",cast:"Kristen Bell, Idina Menzel, Josh Gad",image:"https://image.tmdb.org/t/p/w500/kgwjIb2JDHR5qvz9X3DFFqThTQY.jpg",description:"Two sisters face an icy kingdom and discover the power of family."},
   {id:13,title:"The Lion King",genre:"Animation",year:"2019",rating:"6.8",duration:"1h 58m",cast:"Donald Glover, Beyoncé, James Earl Jones",image:"https://image.tmdb.org/t/p/w500/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg",description:"Simba must find his place in the circle of life."},
   {id:14,title:"Black Panther",genre:"Action",year:"2018",rating:"7.3",duration:"2h 14m",cast:"Chadwick Boseman, Michael B. Jordan, Lupita Nyong'o",image:"https://image.tmdb.org/t/p/w500/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",description:"T'Challa returns home to lead Wakanda and protect its future."},
-  {id:15,title:"Stranger Things",genre:"Mystery",year:"2016",rating:"8.6",duration:"TV Series",cast:"Millie Bobby Brown, Finn Wolfhard, David Harbour",image:"https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",description:"A group of friends uncover strange secrets in their town."}
+  {id:15,title:"Stranger Things",genre:"Mystery",year:"2016",rating:"8.6",duration:"TV Series",cast:"Millie Bobby Brown, Finn Wolfhard, David Harbour",image:"https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",description:"A group of friends uncover strange secrets in their town."},
+  {id:16,title:"Deadpool 3",genre:"Action",year:"2024",rating:"7.6",duration:"2h 8m",cast:"Ryan Reynolds, Hugh Jackman, Emma Corrin",image:"https://image.tmdb.org/t/p/w500/4gdqWCVvidYR0pOHuVOqFundbUG.jpg",description:"Deadpool is pulled into a strange new mission that changes his world."},
+  {id:17,title:"The Marvels",genre:"Action",year:"2023",rating:"5.9",duration:"1h 45m",cast:"Brie Larson, Teyonah Parris, Iman Vellani",image:"https://image.tmdb.org/t/p/w500/tUtgLOESpCx7ue4BaeCTqp3vn1b.jpg",description:"Three heroes find their powers unexpectedly connected."},
+  {id:18,title:"Ant-Man and the Wasp: Quantumania",genre:"Sci-Fi",year:"2023",rating:"6.0",duration:"2h 5m",cast:"Paul Rudd, Evangeline Lilly, Jonathan Majors",image:"https://image.tmdb.org/t/p/w500/qnqGbB22YJ7dSs4o6M7exTpNxPz.jpg",description:"Scott Lang and his family discover a strange world beyond their own."},
+  {id:19,title:"Black Panther: Wakanda Forever",genre:"Action",year:"2022",rating:"7.2",duration:"2h 41m",cast:"Letitia Wright, Lupita Nyong'o, Danai Gurira",image:"https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",description:"Wakanda faces a new threat while its people protect their future."},
+  {id:20,title:"Thor: Love and Thunder",genre:"Fantasy",year:"2022",rating:"6.5",duration:"1h 59m",cast:"Chris Hemsworth, Natalie Portman, Christian Bale",image:"https://image.tmdb.org/t/p/w500/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg",description:"Thor faces a dangerous enemy with the help of old friends."}
 ];
 function icon(name) {
   const icons = {
@@ -428,7 +431,7 @@ function makePoster(movie) {
   const colors={Action:['#7f1d1d','#111827'],Adventure:['#064e3b','#172554'],Animation:['#7c2d12','#312e81'],Comedy:['#7c3aed','#be185d'],Drama:['#1e293b','#334155'],Fantasy:['#312e81','#701a75'],Horror:['#111827','#450a0a'],Mystery:['#0f172a','#164e63'],Romance:['#831843','#4c1d95'],'Sci-Fi':['#082f49','#1e1b4b']};
   const pair=colors[movie.genre]||['#111827','#3f3f46'];
   const svg='<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="'+pair[0]+'"/><stop offset="1" stop-color="'+pair[1]+'"/></linearGradient></defs><rect width="600" height="900" fill="url(#g)"/><circle cx="470" cy="170" r="150" fill="#fff" opacity=".08"/><circle cx="110" cy="760" r="190" fill="#fff" opacity=".06"/><path d="M0 650 Q220 510 600 650V900H0Z" fill="#000" opacity=".35"/><text x="42" y="95" fill="#fff" font-family="Arial" font-size="22" letter-spacing="5">CINEBOX</text><text x="42" y="720" fill="#fff" font-family="Arial" font-size="40" font-weight="700">'+title+'</text><text x="42" y="770" fill="#e5e7eb" font-family="Arial" font-size="20">'+movie.genre.toUpperCase()+' • '+movie.year+'</text><text x="42" y="825" fill="#fbbf24" font-family="Arial" font-size="20">RATING '+movie.rating+'</text></svg>';
-  return movie.image || "";
+  return movie.image || "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
 }
 function getStorage(key, fallback) { const value=localStorage.getItem(key); if(value===null) return fallback; try { return JSON.parse(value); } catch(error) { return fallback; } }
 function setStorage(key, value) {
@@ -633,12 +636,14 @@ function openMovieModal(id) {
   }
   selectedMovieId = id;
   const detailImage = document.getElementById("detailImage");
-  detailImage.src = makePoster(movie);
+  const fallbackPoster = makePoster({title: movie.title, genre: movie.genre, year: movie.year, rating: movie.rating, image: ""});
+  detailImage.src = fallbackPoster;
   detailImage.alt = movie.title + " poster";
   if (movie.image) {
     const remoteDetail = new Image();
     remoteDetail.onload = function() { detailImage.src = movie.image; };
-    remoteDetail.onerror = function() {}; remoteDetail.src = movie.image;
+    remoteDetail.onerror = function() { detailImage.src = fallbackPoster; };
+    remoteDetail.src = movie.image;
   }
   document.getElementById("detailTitle").textContent = movie.title;
   document.getElementById("detailGenre").textContent = movie.genre;
@@ -854,17 +859,10 @@ function showHighestRated() {
     openMovieModal(movie.id);
   }
 }
-  
 </script>
-  
 </body>
-
   
 </html>
-
-
-
-
 
 
 
